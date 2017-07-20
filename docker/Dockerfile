@@ -27,7 +27,9 @@ RUN apt-get install -qq -y python-matplotlib
 RUN apt-get install -qq -y python-scipy
 RUN apt-get install -qq -y python-skimage
 
-RUN pip install -v git+https://github.com/wkentaro/labelme.git
+ADD . /build
+
+RUN pip install -v /build
 
 USER developer
 ENV HOME /home/developer
